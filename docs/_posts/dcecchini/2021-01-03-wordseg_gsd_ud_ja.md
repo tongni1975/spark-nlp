@@ -99,5 +99,5 @@ We trained this model on the the [Universal Dependenicies](universaldependencies
 ```bash
 | Model         | precision    | recall       | f1-score     |
 |---------------|--------------|--------------|--------------|
-| JA_UD-GSD     |      0,7687  |      0,8048  |      0,7863  |
+| JA_UD-GSD     |      0.7687  |      0.8048  |      0.7863  |
 ```
