@@ -12,12 +12,12 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Chinese text. Chinese text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER) require word segmentation as a initial step.
+WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Korean text. Korean text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER), word segmentation is required as an initial step.
 
-
-References:
+Reference:
 
 - Xue, Nianwen. "Chinese word segmentation as character tagging." International Journal of Computational Linguistics & Chinese Language Processing, Volume 8, Number 1, February 2003: Special Issue on Word Formation and Chinese Language Processing. 2003.).
+
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
@@ -51,7 +51,10 @@ example = spark.createDataFrame(pd.DataFrame({'text': ["""비파를탄주하는�
 result = model.transform(example)
 ```
 ```scala
-...
+
+val document_assembler = DocumentAssembler()
+        .setInputCol("text")
+        .setOutputCol("document")
 
 val word_segmenter = WordSegmenterModel.pretrained("wordseg_kaist_ud", "ko")
         .setInputCols("document")
