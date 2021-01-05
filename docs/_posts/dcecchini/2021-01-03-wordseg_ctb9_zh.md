@@ -1,6 +1,6 @@
 ---
 layout: model
-title: Chinese Word Segmentation
+title: Chinese Word Segmentation (CTB)
 author: John Snow Labs
 name: wordseg_ctb9
 date: 2021-01-03
@@ -104,9 +104,9 @@ Reference:
 ```bash
 | Model         | precision    | recall       | f1-score     |
 |---------------|--------------|--------------|--------------|
-| WORSEG_CTB    |      0,6453  |      0,6341  |      0,6397  |
-| WORDSEG_WEIBO |      0,5454  |      0,5655  |      0,5553  |
-| WORDSEG_MSR   |      0,5984  |      0,6088  |      0,6035  |
-| WORDSEG_PKU   |      0,6094  |      0,6321  |      0,6206  |
-| WORDSEG_LARGE |      0,6326  |      0,6269  |      0,6297  |
+| WORSEG_CTB    |      0.6453  |      0.6341  |      0.6397  |
+| WORDSEG_WEIBO |      0.5454  |      0.5655  |      0.5553  |
+| WORDSEG_MSR   |      0.5984  |      0.6088  |      0.6035  |
+| WORDSEG_PKU   |      0.6094  |      0.6321  |      0.6206  |
+| WORDSEG_LARGE |      0.6326  |      0.6269  |      0.6297  |
 ```
