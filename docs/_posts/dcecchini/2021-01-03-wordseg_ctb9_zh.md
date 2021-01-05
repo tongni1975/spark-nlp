@@ -4,7 +4,7 @@ title: Chinese Word Segmentation
 author: John Snow Labs
 name: wordseg_ctb9
 date: 2021-01-03
-tags: [zh]
+tags: [open_source, word_segmentation, zh]
 article_header:
   type: cover
 use_language_switcher: "Python-Scala-Java"
