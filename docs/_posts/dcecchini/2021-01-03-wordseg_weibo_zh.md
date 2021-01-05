@@ -11,13 +11,12 @@ use_language_switcher: "Python-Scala-Java"
 ---
 
 ## Description
+WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Chinese text. Chinese text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER), word segmentation is required as an initial step.
 
-WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Chinese text. Chinese text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER) require word segmentation as a initial step.
-
-
-References:
+Reference:
 
 - Xue, Nianwen. "Chinese word segmentation as character tagging." International Journal of Computational Linguistics & Chinese Language Processing, Volume 8, Number 1, February 2003: Special Issue on Word Formation and Chinese Language Processing. 2003.).
+
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
@@ -43,16 +42,15 @@ pipeline = Pipeline(stages=[
         document_assembler,
         word_segmenter
         ])
-
-model = pipeline.fit(spark.createDataFrame([[""]]).toDF("text"))
-
+        
 example = spark.createDataFrame(pd.DataFrame({'text': ["""然而，这样的处理也衍生了一些问题。"""]}))
-
-result = model.transform(example)
+result = pipeline.fit(example).transform(example)
 ```
 ```scala
 
-...
+val document_assembler = DocumentAssembler()
+        .setInputCol("text")
+        .setOutputCol("document")
 
 val word_segmenter = WordSegmenterModel.pretrained("wordseg_weibo", "zh")
         .setInputCols("document")
