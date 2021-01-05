@@ -12,14 +12,12 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Chinese text. Chinese text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER) require word segmentation as a initial step.
+WordSegmenterModel (WSM) is based on maximum entropy probability model to detect word boundaries in Chinese text. Chinese text is written without white space between the words, and a computer-based application cannot know _a priori_ which sequence of ideograms form a word. In many natural language processing tasks such as part-of-speech (POS) and named entity recognition (NER), word segmentation is required as an initial step.
 
-We trained this model on the the [Chinese Penn Treebank](https://www.cs.brandeis.edu/~clp/ctb/) version 9 data set following the research paper by Nianwen Xue.
+Reference:
 
-References:
-
-- Xue, Nianwen, et al. Chinese Treebank 9.0 LDC2016T13. Web Download. Philadelphia: Linguistic Data Consortium, 2016.
 - Xue, Nianwen. "Chinese word segmentation as character tagging." International Journal of Computational Linguistics & Chinese Language Processing, Volume 8, Number 1, February 2003: Special Issue on Word Formation and Chinese Language Processing. 2003.).
+
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
@@ -37,7 +35,7 @@ document_assembler = DocumentAssembler()\
         .setInputCol("text")\
         .setOutputCol("document")
 
-word_segmenter = WordSegmenterModel.pretrained("wordseg_ctb9")\
+word_segmenter = WordSegmenterModel.pretrained("wordseg_ctb9", "zh")\
         .setInputCols("document")\
         .setOutputCol("token")
         
@@ -53,7 +51,10 @@ example = spark.createDataFrame(pd.DataFrame({'text': ["""然而，这样的处�
 result = ws_model.transform(example)
 ```
 ```scala
-...
+
+val document_assembler = DocumentAssembler()
+        .setInputCol("text")
+        .setOutputCol("document")
 
 val word_segmenter = WordSegmenterModel.pretrained("wordseg_ctb9", "zh")
         .setInputCols("document")
@@ -90,7 +91,13 @@ val result = pipeline.fit(Seq.empty["然而，这样的处理也衍生了一些�
 
 ## Data Source
 
-ctb9_train.chartag
+We trained this model on the the [Chinese Penn Treebank](https://www.cs.brandeis.edu/~clp/ctb/) version 9.
+
+Reference:
+
+- Xue, Nianwen, et al. Chinese Treebank 9.0 LDC2016T13. Web Download. Philadelphia: Linguistic Data Consortium, 2016.
+
+
 
 ## Benchmarking
 
