@@ -86,7 +86,11 @@ val result = pipeline.fit(Seq.empty["然而，这样的处理也衍生了一些�
 
 ## Data Source
 
-The model is trained on the data set from  He, Hangfeng, and Xu Sun. "F-score driven max margin neural network for named entity recognition in chinese social media." arXiv preprint arXiv:1611.04234 (2016).
+The model is trained on the data set of texts extracted from the micro blog platform _Weibo_.
+
+Reference:
+
+- He, Hangfeng, and Xu Sun. "F-score driven max margin neural network for named entity recognition in chinese social media." arXiv preprint arXiv:1611.04234 (2016).
 
 ## Benchmarking
 
