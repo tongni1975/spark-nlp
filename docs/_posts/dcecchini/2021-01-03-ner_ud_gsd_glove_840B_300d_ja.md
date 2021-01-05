@@ -57,8 +57,7 @@ pipeline = Pipeline(stages=[
         sentence_detector,
         word_segmenter,
         embeddings,
-        ner,
-    ])
+        ner])
 
 example = spark.createDataFrame(pd.DataFrame({'text': ["""5月13日に放送されるフジテレビ系「僕らの音楽」にて、福原美穂とAIという豪華共演が決定した。"""]}))
 result = pipeline.fit(example).transform(example)
