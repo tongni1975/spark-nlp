@@ -102,5 +102,5 @@ In Proceedings of the 11th International Conference on Language Resources and Ev
 ```bash
 | Model         | precision    | recall       | f1-score     |
 |---------------|--------------|--------------|--------------|
-| KO_KAIST-UD   |      0,6966  |      0,7779  |      0,7350  |
+| KO_KAIST-UD   |      0.6966  |      0.7779  |      0.7350  |
 ```
