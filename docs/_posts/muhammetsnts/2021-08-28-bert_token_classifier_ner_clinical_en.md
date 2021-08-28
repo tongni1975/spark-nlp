@@ -80,7 +80,7 @@ val tokenizer = Tokenizer()\
        .setInputCols("sentence")\
        .setOutputCol("token")
 
-val tokenClassifier = BertForTokenClassification.load("models/bert_based_ner_clinical")\
+val tokenClassifier = BertForTokenClassification.pretrained("bert_token_classifier_ner_clinical", "en", "clinical/models")\
        .setInputCols(Array("token", "sentence"))\
        .setOutputCol("ner")
   
